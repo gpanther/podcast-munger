@@ -7,7 +7,7 @@ A small bash script to encode my podcasts the way I need them.
 
 - place the inputs in input/ (warning! these will be deleted after processing!)
 - `./munge.sh`
-- dring tea :-)
+- drink tea :-)
 - get your outputs from output/
 
 ## what it does
