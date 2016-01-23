@@ -8,7 +8,10 @@ echo '[*] sox:'
 which sox
 
 # skip hidden files
-for i in `find input -type f -not -path "*/\.*"`; do
+for i in input/*; do
+	if [ ! -f "$i" ]; then
+		continue;
+	fi
 	INPUT="$i"
 	OUTPUT="output/`basename \"$i\"`"
 	OUTPUT=`echo "$OUTPUT" | perl -npe 's/\.[^.]*$/.mp3/'`
