@@ -23,7 +23,7 @@ for i in input/*; do
 	echo "[*] $INPUT"
 	echo " -> $OUTPUT"
 	ffmpeg -loglevel quiet -i "$INPUT" -vn -acodec pcm_s16le -f wav -ac 1 - \
-		| sox -t wav - -t wav - silence -l 1 0.3 1% -1 1.0 1% compand 0.3,1 6:-70,-60,-20 -5 -90 \
+		| sox -t wav - -t wav - compand 0.3,1 6:-70,-60,-20 -5 -90 silence -l 1 0.1 1% -1 2.0 1% \
 		| ffmpeg -loglevel quiet -i - -ac 2 -filter:a "atempo=1.25" -ar 22050 -ab 64k -f mp3 -joint_stereo 1 "$OUTPUT"
 	rm "$INPUT"
 done
